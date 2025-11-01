@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moulay El Mostapha NOKRAOUI | Alliance Ammelne</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      animation: slideUp 0.6s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .left-section {
+      background: white;
+      color: #333;
+      padding: 50px 35px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      border-right: 1px solid #e0e0e0;
+    }
+
+    .logo {
+      width: 140px;
+      margin-bottom: 30px;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .profile-img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid #2E8B57;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      margin-bottom: 25px;
+    }
+
+    .name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+      color: #1e5a8e;
+    }
+
+    .title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #e89b3c;
+      margin-bottom: 10px;
+    }
+
+    .company {
+      font-size: 0.95rem;
+      color: #1e5a8e;
+      font-weight: 500;
+      margin-bottom: 30px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+      margin-top: auto;
+    }
+
+    .social-links a {
+      width: 42px;
+      height: 42px;
+      background: white;
+      border: 2px solid #2E8B57;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #2E8B57;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: #2E8B57;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 12px rgba(46, 139, 87, 0.3);
+    }
+
+    .right-section {
+      padding: 50px 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .section-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #2E8B57;
+      font-weight: 600;
+      margin-bottom: 20px;
+      border-left: 4px solid #e89b3c;
+      padding-left: 12px;
+    }
+
+    .contact-info {
+      margin-bottom: 35px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: start;
+      margin-bottom: 18px;
+      padding: 12px;
+      border-radius: 10px;
+      border-left: 3px solid transparent;
+      transition: all 0.3s ease;
+    }
+
+    .contact-item:hover {
+      background: #f8f9fa;
+      border-left-color: #2E8B57;
+      transform: translateX(5px);
+    }
+
+    .contact-item i {
+      color: #e89b3c;
+      font-size: 1.1rem;
+      width: 30px;
+      margin-right: 15px;
+      margin-top: 2px;
+    }
+
+    .contact-item-content {
+      flex: 1;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #1e5a8e;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      color: #333;
+      font-size: 0.95rem;
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    .contact-value a {
+      color: #333;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-value a:hover {
+      color: #2E8B57;
+    }
+
+    .actions {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      flex: 1;
+      min-width: 200px;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #e89b3c 0%, #f4b460 100%);
+      color: white;
+      border: none;
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(135deg, #d18a2e 0%, #e89b3c 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(232, 155, 60, 0.4);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      width: 90%;
+      max-width: 480px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: modalSlide 0.4s ease;
+      border-top: 5px solid #2E8B57;
+      border-bottom: 5px solid #e89b3c;
+    }
+
+    @keyframes modalSlide {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    .modal-header h3 {
+      font-size: 1.4rem;
+      color: #2E8B57;
+    }
+
+    .close {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background: #f0f0f0;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #666;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .close:hover {
+      background: #2E8B57;
+      color: white;
+      transform: rotate(90deg);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #1e5a8e;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2E8B57;
+      box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #2E8B57 0%, #228B22 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(46, 139, 87, 0.4);
+    }
+
+    .submit-btn:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .form-message {
+      margin-top: 15px;
+      padding: 12px;
+      border-radius: 8px;
+      display: none;
+      text-align: center;
+      font-weight: 500;
+      animation: fadeIn 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .form-message.success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+
+    .form-message.error {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        grid-template-columns: 1fr;
+      }
+
+      .left-section {
+        padding: 35px 25px;
+      }
+
+      .right-section {
+        padding: 35px 25px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        min-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="left-section">
+      <img src="logo.png" alt="Alliance Ammelne" class="logo">
+      <img src="photo.jpg" alt="Moulay El Mostapha NOKRAOUI" class="profile-img">
+      
+      <div class="name">Moulay El Mostapha NOKRAOUI</div>
+      <div class="title">Coordinateur</div>
+      <div class="company">Alliance Ammelne</div>
+
+      <div class="social-links">
+        <a href="https://www.facebook.com/share/1ZeE1SLbEd/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/nokraouimy?igsh=ZmpxNzRjOGs5MGxj" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="right-section">
+      <div>
+        <h2 class="section-title">Informations de Contact</h2>
+        
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <div class="contact-item-content">
+              <div class="contact-label">Téléphone</div>
+              <div class="contact-value">
+                <a href="tel:+212662806178">+212 662 806 178</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div class="contact-item-content">
+              <div class="contact-label">Email Personnel</div>
+              <div class="contact-value">
+                <a href="mailto:nokraoui@yahoo.fr">nokraoui@yahoo.fr</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div class="contact-item-content">
+              <div class="contact-label">Email Professionnel</div>
+              <div class="contact-value">
+                <a href="mailto:allianceammelne@gmail.com">allianceammelne@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div class="contact-item-content">
+              <div class="contact-label">Adresse</div>
+              <div class="contact-value">BP 304 - Tafraout (Centre)<br>85400 - Maroc</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-primary" id="downloadBtn">
+          <i class="fa-solid fa-address-card"></i>
+          Ajouter aux Contacts
+        </button>
+        <button class="btn btn-secondary" id="openForm">
+          <i class="fa-solid fa-share-nodes"></i>
+          Partager mes Infos
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="formModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Envoyez-moi un message</h3>
+        <button class="close" id="closeForm">&times;</button>
+      </div>
+      
+      <form id="contactForm">
+        <!-- CONFIGURATION : Changez seulement l'email pour chaque personne -->
+        <input type="hidden" name="access_key" value="8e69d42c-a61f-4858-ad0b-811431e11bb4">
+        <input type="hidden" name="from_name" value="Carte de visite - Moulay El Mostapha NOKRAOUI">
+        <input type="hidden" name="email" value="nokraoui@yahoo.fr">
+        <input type="hidden" name="redirect" value="false">
+        
+        <div class="form-group">
+          <label for="prenom">Prénom *</label>
+          <input type="text" id="prenom" name="Prénom" required>
+        </div>
+
+        <div class="form-group">
+          <label for="nom">Nom *</label>
+          <input type="text" id="nom" name="Nom" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="Email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="telephone">Téléphone</label>
+          <input type="tel" id="telephone" name="Téléphone">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="Message" placeholder="Votre message..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <i class="fa-solid fa-paper-plane"></i>
+          Envoyer le Message
+        </button>
+        
+        <div class="form-message" id="formMessage"></div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const openForm = document.getElementById("openForm");
+    const formModal = document.getElementById("formModal");
+    const closeForm = document.getElementById("closeForm");
+    const downloadBtn = document.getElementById("downloadBtn");
+    const contactForm = document.getElementById("contactForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const formMessage = document.getElementById("formMessage");
+
+    openForm.addEventListener("click", () => {
+      formModal.style.display = "flex";
+    });
+
+    closeForm.addEventListener("click", () => {
+      formModal.style.display = "none";
+      formMessage.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === formModal) {
+        formModal.style.display = "none";
+        formMessage.style.display = "none";
+      }
+    });
+
+    downloadBtn.addEventListener("click", () => {
+      const vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Moulay El Mostapha NOKRAOUI
+TITLE:Coordinateur
+TEL:+212662806178
+EMAIL:nokraoui@yahoo.fr
+EMAIL:allianceammelne@gmail.com
+ADR:;;BP 304 - Tafraout (Centre) 85400 - Maroc;;;;
+ORG:Alliance Ammelne
+END:VCARD`;
+
+      const blob = new Blob([vcard], { type: 'text/vcard' });
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'Moulay_El_Mostapha_NOKRAOUI.vcf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    });
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Envoi en cours...';
+      formMessage.style.display = "none";
+
+      const formData = new FormData(contactForm);
+
+      try {
+        const response = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          formMessage.textContent = "✓ Message envoyé avec succès !";
+          formMessage.className = "form-message success";
+          formMessage.style.display = "block";
+          contactForm.reset();
+          
+          setTimeout(() => {
+            formModal.style.display = "none";
+            formMessage.style.display = "none";
+          }, 2000);
+        } else {
+          throw new Error(data.message || "Erreur d'envoi");
+        }
+      } catch (error) {
+        formMessage.textContent = "✗ Erreur lors de l'envoi. Veuillez réessayer.";
+        formMessage.className = "form-message error";
+        formMessage.style.display = "block";
+        console.error('Erreur:', error);
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Envoyer le Message';
+      }
+    });
+  </script>
+
+</body>
+</html>
