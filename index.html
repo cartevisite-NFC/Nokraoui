@@ -437,7 +437,7 @@
       <img src="photo.jpg" alt="Moulay El Mostapha NOKRAOUI" class="profile-img">
       
       <div class="name">Moulay El Mostapha NOKRAOUI</div>
-      <div class="title">Coordinateur</div>
+      <div class="title">Coordinateur-Fondateur</div>
       <div class="company">Alliance Ammelne</div>
 
       <div class="social-links">
@@ -513,11 +513,9 @@
       </div>
       
       <form id="contactForm">
-        <!-- CONFIGURATION : Changez seulement l'email pour chaque personne -->
-        <input type="hidden" name="access_key" value="8e69d42c-a61f-4858-ad0b-811431e11bb4">
-        <input type="hidden" name="from_name" value="Carte de visite - Moulay El Mostapha NOKRAOUI">
-        <input type="hidden" name="email" value="nokraoui@yahoo.fr">
-        <input type="hidden" name="redirect" value="false">
+        <!-- Configuration : Email envoyé à rondarouse15@gmail.com -->
+        <input type="hidden" name="emailDestination" value="nokraoui@yahoo.fr">
+        <input type="hidden" name="nomClient" value="Moulay El Mostapha NOKRAOUI">
         
         <div class="form-group">
           <label for="prenom">Prénom *</label>
@@ -555,6 +553,9 @@
   </div>
 
   <script>
+    // URL Google Apps Script configurée pour rondarouse15@gmail.com
+    const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby3c4JaDxwRFEzr8wn6HCu9c0n6rtBwM55E9Q_05iHSk9md-7EMKfCtLpOwdf2Y5CQ/exec';
+
     const openForm = document.getElementById("openForm");
     const formModal = document.getElementById("formModal");
     const closeForm = document.getElementById("closeForm");
@@ -612,7 +613,7 @@ END:VCARD`;
       const formData = new FormData(contactForm);
 
       try {
-        const response = await fetch("https://api.web3forms.com/submit", {
+        const response = await fetch(GOOGLE_SCRIPT_URL, {
           method: "POST",
           body: formData
         });
